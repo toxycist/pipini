@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "runall": "start cmd /k \"cd backend && npm install && npm run back\" & start cmd /k \"cd frontend && npm install && npm run dev\""
+  }
+}

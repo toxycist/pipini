@@ -1,0 +1,1 @@
+# <code>npm run runall</code> from the main folder

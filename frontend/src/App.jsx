@@ -3,7 +3,8 @@ import axios from 'axios'
 import './App.css'
 
 function App() {
-  const [ data, setData ] = useState(null)
+  const [ welcomeMessage, setData ] = useState(null)
+  const [ emailSentMessage, setEmailSentMessage ] = useState(null)
   
   useEffect(() => {
     const sendApiCall = async () => {
@@ -18,9 +19,20 @@ function App() {
     sendApiCall()
   }, [])
 
+  const sendEmail = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/send_email', {to: "pipinasdarius@gmail.com"});
+      setEmailSentMessage(response.data);
+    } catch (error) {
+      setEmailSentMessage('Failed to send email: ' + error);
+    }
+  };
+
   return (
     <>
-      <div>{data}</div>
+      <div>{welcomeMessage}</div>
+      <button onClick = {sendEmail}>Send email</button>
+      <div>{emailSentMessage}</div>
     </>
   )
 }
