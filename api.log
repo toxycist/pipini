@@ -1,0 +1,3 @@
+2025-07-30 20:40:47,707 gnews api succesful
+2025-07-30 20:40:53,108 HTTP Request: POST https://api.openai.com/v1/responses "HTTP/1.1 200 OK"
+2025-07-30 20:40:53,161 openai api succesful
