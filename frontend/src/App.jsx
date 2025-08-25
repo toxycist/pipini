@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import { ViewableItems } from './components/ViewableItems'
 
 function App() {
   
   const [ welcomeMessage, setWelcomeMessage ] = useState(null)
-  const [viewCounters, setViewCounters] = useState({
-    1: 0,
-    2: 0,
-    3: 0,
-  });
-  // const [ emailSentMessage, setEmailSentMessage ] = useState(null)
-  
+
   useEffect(() => {
     const sendApiCall = async () => {
       try {
@@ -34,13 +29,6 @@ function App() {
   //   }
   // };
 
-  const viewItem = (id) => {
-    setViewCounters((prev) => ({
-      ...prev,
-      [id]: prev[id] + 1,
-    }));
-  };
-
   return (
     <div>
       <div>{welcomeMessage}</div>
@@ -48,12 +36,7 @@ function App() {
       <br></br><br></br>
 
       <div className='viewable-items-container'>
-        {Object.entries(viewCounters).map(([itemId, value]) => (
-          <div key={itemId}  className='viewable-item'>
-            <button onClick={() => {viewItem(itemId)}}>View item {itemId}</button>
-            <div>Item viewed {value} times.</div>
-          </div>
-        ))}
+        <ViewableItems />
       </div>
 
       <div className="discount-checkbox">
