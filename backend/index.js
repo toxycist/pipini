@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
   res.send('Connected to the backend server.')
 })
 
-function sendEmail(to) {
+function sendEmail(to, items) {
   return new Promise((resolve, reject) => {
-    const email_python_process = spawn("python", ["email_agent.py", to])
+    const email_python_process = spawn("python", ["email_agent.py", to, items])
 
     email_python_process.stderr.on("data", (data) => {
       console.error(`stderr: ${data}`);
@@ -31,10 +31,9 @@ function sendEmail(to) {
 }
 
 app.post('/send_email', async (req, res) => {
-   console.log(req)
-   const { to } = req.body
+   const { to, items } = req.body
    try {
-    const result = await sendEmail(to);
+    const result = await sendEmail(to, items);
     res.send(`Email sent to ${to}. Output: ${result}`);
   } catch (err) {
     res.status(500).send(`Tried to send an email to ${to}. Error: ${err.message}`);

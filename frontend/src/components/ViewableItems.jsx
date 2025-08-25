@@ -2,13 +2,7 @@ import { useState } from 'react'
 
 import './ViewableItems.css'
 
-export function ViewableItems() {
-  const [viewCounters, setViewCounters] = useState({
-    1: 0,
-    2: 0,
-    3: 0,
-  });
-
+export function ViewableItems({viewCounters, setViewCounters}) {
   const viewItem = (id) => {
     setViewCounters((prev) => ({
       ...prev,

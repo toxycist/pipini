@@ -11,14 +11,15 @@ load_dotenv()
 sender_email = os.getenv("EMAIL_USER")
 password = os.getenv("EMAIL_PASS")
 receiver_email = sys.argv[1]
+items = sys.argv[2]
 
 # Create the email
 msg = MIMEMultipart()
 msg["From"] = sender_email
 msg["To"] = receiver_email
-msg["Subject"] = "test"
+msg["Subject"] = "News about your most viewed items!"
 
-body = "kys"
+body = items
 msg.attach(MIMEText(body, "plain"))
 
 try:
