@@ -68,6 +68,25 @@ button:focus-visible {
   border-radius: 8px;
 }
 
+.discount-option {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+  background: #f9f9f9;
+  padding: 6px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.discount-option label {
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

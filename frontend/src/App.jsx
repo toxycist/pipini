@@ -56,6 +56,11 @@ function App() {
         ))}
       </div>
 
+      <div className="discount-checkbox">
+        <input type="checkbox" id="discount" />
+        <label htmlFor="discount">Apply a discount</label>
+      </div>
+
     </div>
   )
 }
