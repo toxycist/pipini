@@ -20,9 +20,9 @@ function App() {
     sendApiCall()
   }, [])
 
-  // const sendEmail = async () => {
+  // const sendEmail = async (receiver) => {
   //   try {
-  //     const response = await axios.post('http://localhost:3000/send_email', {to: "pipinasdarius@gmail.com"});
+  //     const response = await axios.post('http://localhost:3000/send_email', {to: receiver});
   //     setEmailSentMessage(response.data);
   //   } catch (error) {
   //     setEmailSentMessage('Failed to send email: ' + error);
